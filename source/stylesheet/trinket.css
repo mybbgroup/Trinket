@@ -1,0 +1,54 @@
+.profilepop {
+  position: absolute;
+  text-align: center;
+  color: #333;
+  background: #FFF;
+  position: absolute;
+  z-index: 100;
+  padding: 15px;
+  pointer-events: none;
+  border: 3px solid #DDD;
+  border-radius: 3px;
+}
+
+.profilepop:after {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #DDD;
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -12px;
+  margin-left: -10px;
+}
+
+.profilepop.top:after {
+  border-top-color: transparent;
+  border-bottom: 10px solid #DDD;
+  top: -22px;
+  bottom: auto;
+}
+
+.profilepop.left:after {
+  left: 10px;
+  margin: 0;
+}
+
+.profilepop.right:after {
+  right: 10px;
+  left: auto;
+  margin: 0;
+}
+
+.profilepop img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.profilepop .username {
+  font-size: 18px;
+}
+/*# sourceMappingURL=trinket.css.map */
