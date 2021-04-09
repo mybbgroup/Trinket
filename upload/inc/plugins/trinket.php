@@ -47,6 +47,17 @@ function trinket_deactivate()
 	trinket_purgecache(-1);
 }
 
+function update_trinket()
+{
+	global $cache;
+	$trinket_cache = $cache->read('trinket');
+	$trinket_to_cache = [];
+	foreach ($trinket_cache as $uid => $data) {
+		$trinket_to_cache[$uid] = array_intersect_key(get_user((int)$uid), array_flip(['uid', 'username', 'usergroup', 'displaygroup', 'avatar']));
+	}
+	$cache->update('trinket', $trinket_to_cache);
+}
+
 function trinket_fetch_key($targetvalue, $field, $arraydata)
 {
 	return (int)array_search($targetvalue, array_map(function ($data) use ($field) {
