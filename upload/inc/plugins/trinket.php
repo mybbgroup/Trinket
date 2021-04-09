@@ -226,8 +226,9 @@ function trinket_purgecache($uid = 0)
 		$cache->delete('trinket');
 	} else {
 		if (!$uid) {
-			if ((defined('IN_ADMINCP') && ($mybb->input['remove_avatar'] || $_FILES['avatar_upload']['name']))
-				|| (THIS_SCRIPT == 'modcp.php' && !empty($mybb->input['remove_avatar']))
+			if ((defined('IN_ADMINCP') && ($mybb->input['remove_avatar'] || $_FILES['avatar_upload']['name'] 
+			|| ($mybb->get_input('module') == 'user-users' && $mybb->get_input('action') == 'edit')))
+			|| (THIS_SCRIPT == 'modcp.php' && !empty($mybb->input['remove_avatar']))
 			) { // Admin / Moderator action
 				$uid = $mybb->get_input('uid', MyBB::INPUT_INT);
 			} else if (isset($mybb->user['uid'])) { // Self action by user
